@@ -11,7 +11,7 @@ class WorkbookController < ApplicationController
       #spreadsheet.sheets.each_with_pagename do |name, sheet|
     # p sheet.row(1)
       #end
-      redirect_to reports_workbook_index
+      redirect_to reports_workbook_index_path
     else
       redirect_to workbook_path, :flash => { :error => "Please choose a valid workbook!" }
     end

@@ -1,6 +1,3 @@
-<% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
 <div style="width:700px; margin: 50px auto;" class="border p-3">
   <h3>Choose Workbook</h3>
     <%= form_tag workbook_path, multipart: true do %>
@@ -10,7 +7,10 @@
           <span class="input-group-btn">
             <button class="btn btn-default btn-choose" type="button">Choose</button>
           </span>          
-        </div>	
+        </div>
+        <% flash.each do |key, value| %>
+            <div class="alert-<%= key %>" style="color:red;"><%= value %></div>
+        <% end %>	
       </div>
       <div class="form-group text-center"><%= submit_tag "Start Execute", :class =>  "btn btn-primary"%></div>
     <% end %>

@@ -1,6 +1,12 @@
 body {
   padding-top: 5rem;
+  background-attachment: url("../assets/ezdc_logo.jpg")) !imporant;
 }
 .starter-template {
   text-align: center;
+}
+.ezdc-icon {
+  width: 50px;
+  border: 5px white;
+  border-radius: 3px;
 }
