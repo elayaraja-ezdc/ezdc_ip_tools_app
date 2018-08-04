@@ -1,0 +1,19 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <%= link_to("Console", console_workbook_index_path, html_options = {:class => "nav-link #{ 'active' if params[:action] == 'console' }", :id => "console-log"})%>
+    </li>
+    <li class="nav-item">
+        <%= link_to("Success", success_workbook_index_path, html_options = {:class => "nav-link #{ 'active' if params[:action] == 'success' }", :id => "success-log"})%>
+    </li>
+    <li class="nav-item">
+        <%= link_to("Warning", warning_workbook_index_path, html_options = {:class => "nav-link #{ 'active' if params[:action] == 'warning' }", :id => "warning-log"})%>
+    </li>
+    <li class="nav-item">
+        <%= link_to("Error", error_workbook_index_path, html_options = {:class => "nav-link #{ 'active' if params[:action] == 'error' }", :id => "error-log"})%>
+    </li>
+</ul>
+<script>
+    $(document).ready(function() {
+        $('html, body').animate({scrollTop:$(document).height()}, 'slow');
+    });
+</script>

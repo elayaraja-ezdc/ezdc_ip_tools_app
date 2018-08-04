@@ -1,7 +1,9 @@
-<h3 style="text-align:center; color:#007bff;">Welcome to EZDC IP TOOL Integration App</h3>
-<div style="text-align:center">
-    <%= image_tag("ezdc_logo.jpg")%>
-</div>
-<div style="text-align:center">
-    <%= button_tag("Please Click Here to Continue", :class => "btn btn-primary btn-lg")%>
+<div style="width:700px; margin: 50px auto;" class="border p-3">
+    <h3 style="text-align:center; color:#007bff;">Welcome to EZDC IP TOOL Integration App</h3>
+    <div style="text-align:center">
+        <%= image_tag("ezdc_logo.jpg")%>
+    </div>
+    <div style="text-align:center">
+        <%= button_to("Please Click Here to Continue", workbook_path, :class => "btn btn-primary btn-lg", :method => 'get') %>
+    </div>
 </div>

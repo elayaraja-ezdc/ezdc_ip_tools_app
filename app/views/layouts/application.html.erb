@@ -10,6 +10,39 @@
   </head>
 
   <body>
-    <%= yield %>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= params[:controller] == 'home' ? 'active' : ''%>">
+            <a class="nav-link" href="/">Home 
+              <% if params[:controller] == "home" %>
+                <span class="sr-only">(current)</span>
+              <% end %>
+            </a>
+          </li>
+          <li class="nav-item <%= params[:controller] == 'workbook' ? 'active' : ''%>">
+            <a class="nav-link" href="/workbook">Workbook
+              <% if params[:controller] == "workbook" %>
+                  <span class="sr-only">(current)</span>
+              <% end %>
+            </a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" placeholder="Search" aria-label="Search" type="text">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <main role="main" class="container">
+      <div class="starter-template">
+              <%= yield %>
+      </div>
+    </main><!-- /.container -->
   </body>
 </html>
