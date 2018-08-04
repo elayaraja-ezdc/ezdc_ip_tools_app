@@ -5,11 +5,11 @@ class WorkbookController < ApplicationController
   def create
     if params[:workbook_config]
       file = params[:workbook_config]
-      #system('powershell -File C:\Temp\CreateADUser.ps1 -Name "Name" -Email "Email" -Password "Password"')
+      ApplicationJob.set(wait: 5.seconds).perform_later
       #spreadsheet = Roo::Spreadsheet.open(file.path)
       #p spreadsheet.info
       #spreadsheet.sheets.each_with_pagename do |name, sheet|
-    # p sheet.row(1)
+      # p sheet.row(1)
       #end
       redirect_to reports_workbook_index_path
     else
