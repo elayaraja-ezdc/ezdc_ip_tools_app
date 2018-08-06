@@ -5,7 +5,12 @@ class WorkbookController < ApplicationController
   def create
     if params[:workbook_config]
       file = params[:workbook_config]
-      ApplicationJob.set(wait: 5.seconds).perform_later
+      p "*************FIlE*****************"
+      p file
+      p "=================File path ================="
+      p file.tempfile.path
+      p "-------------------------"
+      ApplicationJob.set(wait: 5.seconds).perform_later file.tempfile.path
       #spreadsheet = Roo::Spreadsheet.open(file.path)
       #p spreadsheet.info
       #spreadsheet.sheets.each_with_pagename do |name, sheet|
@@ -21,7 +26,7 @@ class WorkbookController < ApplicationController
   end
   
   def console
-    @console_log = File.read(File.open("log/config_workbook_log.log", "r"))
+    @console_log = File.read(File.open("log/config_workbook_log.log", "r")).html_safe
   end
   
   def success

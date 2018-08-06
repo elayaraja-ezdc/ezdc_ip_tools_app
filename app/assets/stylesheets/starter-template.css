@@ -3,7 +3,7 @@ body {
   background-attachment: url("../assets/ezdc_logo.jpg")) !imporant;
 }
 .starter-template {
-  text-align: center;
+  /* text-align: center; */
 }
 .ezdc-icon {
   width: 50px;
