@@ -5,7 +5,10 @@ class WorkbookController < ApplicationController
   def create
     if params[:workbook_config]
       file = params[:workbook_config]
-      ApplicationJob.set(wait: 5.seconds).perform_later file.tempfile.path
+      workbook = RubyXL::Parser.parse(file.tempfile.path)
+      workbook.write(Rails.root.join('public', 'workbook_config', file.original_filename))
+      file_path = "C:\/IP Tool\/ezdc_ip_tools\/public\/workbook_config\/#{file.original_filename}"
+      ApplicationJob.set(wait: 5.seconds).perform_later file_path
       #spreadsheet = Roo::Spreadsheet.open(file.path)
       #p spreadsheet.info
       #spreadsheet.sheets.each_with_pagename do |name, sheet|
@@ -21,7 +24,7 @@ class WorkbookController < ApplicationController
   end
   
   def console
-    @console_log = File.read(File.open("log/console.log", "r")).html_safe
+    @console_log = File.read(File.open("log/console.log", "r"))
   end
   
   def success

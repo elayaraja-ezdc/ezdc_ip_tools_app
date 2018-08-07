@@ -31,9 +31,6 @@ Things you may want to cover:
 
     ‘gem install bundler’
 
-    mkdir ezdc -check for windows command
-
-    cd ezdc
 
     Paste the ezdc_ip_tools_app
 
